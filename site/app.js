@@ -20,14 +20,11 @@ async function load() {
   $('form-link').href = CONFIG.formUrl;
   fillSelect('industry', tax.industries);
   fillSelect('country', tax.countries);
-  fillSelect('tw_region', tax.tw_regions);
-  $('country').addEventListener('input', () => {
-    const isTw = !$('country').value || $('country').value === 'tw';
-    $('tw_region').disabled = !isTw;
-    if (!isTw) $('tw_region').value = '';
-  });
+  $('country').addEventListener('input', refreshSubdivisions);
+  $('admin_area').addEventListener('input', refreshMetros);
+  refreshSubdivisions();
   fillSelect('recruiter_type', tax.recruiter_type);
-  ['q', 'industry', 'country', 'tw_region', 'recruiter_type', 'sort'].forEach((id) => $(id).addEventListener('input', render));
+  ['q', 'industry', 'country', 'admin_area', 'metro', 'recruiter_type', 'sort'].forEach((id) => $(id).addEventListener('input', render));
   document.querySelectorAll('.tabs button').forEach((b) =>
     b.addEventListener('click', () => {
       state.view = b.dataset.view;
@@ -36,6 +33,41 @@ async function load() {
     })
   );
   render();
+}
+
+function subdivision() {
+  return state.tax.subdivisions[$('country').value] || null;
+}
+
+function refreshSubdivisions() {
+  const sub = subdivision();
+  resetSelect('admin_area', '所有州／縣市');
+  $('admin_area').disabled = !sub;
+  if (sub) fillSelect('admin_area', sub.admin_areas);
+  refreshMetros();
+}
+
+function refreshMetros() {
+  const sub = subdivision();
+  const area = $('admin_area').value;
+  resetSelect('metro', '所有都會區');
+  $('metro').disabled = !sub;
+  if (!sub) return;
+  const metros = Object.fromEntries(
+    Object.entries(sub.metros)
+      .filter(([, m]) => !area || !m.admin_areas.length || m.admin_areas.includes(area))
+      .map(([k, m]) => [k, m.label])
+  );
+  fillSelect('metro', metros);
+}
+
+function resetSelect(id, placeholder) {
+  const sel = $(id);
+  sel.innerHTML = '';
+  const o = document.createElement('option');
+  o.value = '';
+  o.textContent = placeholder;
+  sel.appendChild(o);
 }
 
 function fillSelect(id, map) {
@@ -52,14 +84,23 @@ function label(group, key) {
   return (state.tax[group] && state.tax[group][key]) || key || '';
 }
 
+function placeLabel(r) {
+  const sub = state.tax.subdivisions[r.country];
+  const parts = [label('countries', r.country)];
+  if (sub && r.metro && sub.metros[r.metro]) parts.push(sub.metros[r.metro].label);
+  else if (sub && r.admin_area && sub.admin_areas[r.admin_area]) parts.push(sub.admin_areas[r.admin_area]);
+  return parts.join(' · ');
+}
+
 function matches(r) {
   const q = $('q').value.trim().toLowerCase();
   if ($('industry').value && r.industry !== $('industry').value) return false;
   if ($('country').value && r.country !== $('country').value) return false;
-  if ($('tw_region').value && r.tw_region !== $('tw_region').value) return false;
+  if ($('admin_area').value && r.admin_area !== $('admin_area').value) return false;
+  if ($('metro').value && r.metro !== $('metro').value) return false;
   if ($('recruiter_type').value && r.recruiter_type !== $('recruiter_type').value) return false;
   if (!q) return true;
-  const hay = [r.recruiter_name, r.recruiter_company, r.hiring_company, r.summary, label('industries', r.industry), label('countries', r.country), label('tw_regions', r.tw_region)]
+  const hay = [r.recruiter_name, r.recruiter_company, r.hiring_company, r.summary, label('industries', r.industry), placeLabel(r)]
     .filter(Boolean).join(' ').toLowerCase();
   return hay.includes(q);
 }
@@ -88,8 +129,7 @@ function reviewCard(r) {
   const tags = [
     label('recruiter_type', r.recruiter_type),
     label('industries', r.industry),
-    label('countries', r.country),
-    r.tw_region ? label('tw_regions', r.tw_region) : null,
+    placeLabel(r),
     label('role_families', r.role_family),
     label('seniority', r.seniority),
     label('channel', r.channel),

@@ -14,8 +14,8 @@
   header a { color:var(--accent); }
   .cta { display:inline-block; margin-top:10px; padding:8px 14px; background:var(--accent); color:#fff; border-radius:6px; text-decoration:none; font-weight:600; }
   main { max-width:1100px; margin:0 auto; padding:0 20px 60px; }
-  .filters { display:grid; grid-template-columns: 2fr repeat(5, 1fr); gap:10px; margin:16px 0; }
-  .filters input, .filters select { width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:6px; font-size:15px; background:#fff; }
+  .filters { display:grid; grid-template-columns: repeat(6, 1fr); gap:10px; margin:16px 0; }
+  .filters input, .filters select { width:100%; min-width:0; padding:10px 12px; border:1px solid var(--line); border-radius:6px; font-size:15px; background:#fff; }
   .meta { display:flex; justify-content:space-between; align-items:center; color:var(--muted); font-size:14px; margin-bottom:10px; flex-wrap:wrap; gap:8px; }
   .tabs button { border:1px solid var(--line); background:#fff; padding:6px 12px; border-radius:6px; cursor:pointer; font-size:14px; }
   .tabs button.active { background:var(--ink); color:#fff; border-color:var(--ink); }
@@ -34,6 +34,8 @@
   .overall small { font-size:12px; color:var(--muted); font-weight:400; }
   .empty { text-align:center; color:var(--muted); padding:40px; }
   footer { max-width:1100px; margin:0 auto; padding:20px; color:var(--muted); font-size:13px; border-top:1px solid var(--line); }
+  .filters input { grid-column:1/-1; }
+  @media (max-width:1000px) { .filters { grid-template-columns:1fr 1fr 1fr; } }
   @media (max-width:800px) { .filters { grid-template-columns:1fr 1fr; } .filters input { grid-column:1/-1; } .scores { grid-template-columns:repeat(5,1fr); } }
 </style>
 </head>
@@ -48,7 +50,8 @@
     <input id="q" type="search" placeholder="搜尋 recruiter 姓名、公司、應徵公司、關鍵字…">
     <select id="industry"><option value="">所有產業</option></select>
     <select id="country"><option value="">所有國家／地區</option></select>
-    <select id="tw_region"><option value="">台灣各區</option></select>
+    <select id="admin_area"><option value="">所有州／縣市</option></select>
+    <select id="metro"><option value="">所有都會區</option></select>
     <select id="recruiter_type"><option value="">所有 recruiter 類型</option></select>
     <select id="sort">
       <option value="recent">最新</option>
