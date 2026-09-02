@@ -1,6 +1,6 @@
 const CONFIG = {
-  repoUrl: 'https://github.com/Carlping/recruiter-review-tw',
-  formUrl: 'https://github.com/Carlping/recruiter-review-tw#參與方式', // 換成 Google Form 連結
+  repoUrl: 'https://github.com/Carlping/awesome-recruiter',
+  formUrl: 'https://github.com/Carlping/awesome-recruiter#參與方式', // 換成 Google Form 連結
 };
 
 const DIMS = ['responsiveness', 'transparency', 'professionalism', 'respect', 'closure'];

@@ -36,7 +36,7 @@
 | `summary` | 0–300 字的事實與個人體驗摘要 |
 | `source`、`status` | 資料來源與審核狀態 |
 
-搜尋網站：[Recruiter Review TW（連結待設定）](https://example.com/recruiter-review-tw)
+搜尋網站：[Recruiter Review TW](https://carlping.github.io/awesome-recruiter/)（需在 Settings → Pages 啟用 GitHub Actions 來源）
 
 ## 法律與倫理原則
 

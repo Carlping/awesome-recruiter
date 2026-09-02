@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://example.com/recruiter-review-tw/review.schema.json",
+  "$id": "https://raw.githubusercontent.com/Carlping/awesome-recruiter/main/schema/review.schema.json",
   "type": "object",
   "additionalProperties": false,
   "required": [

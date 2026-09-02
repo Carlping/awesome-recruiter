@@ -1,5 +1,5 @@
-const OWNER = 'OWNER_PLACEHOLDER';
-const REPO = 'REPO_PLACEHOLDER';
+const OWNER = 'Carlping';
+const REPO = 'awesome-recruiter';
 
 function first_(namedValues, title) {
   const values = namedValues[title] || [''];
