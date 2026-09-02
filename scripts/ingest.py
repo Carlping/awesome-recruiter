@@ -88,6 +88,15 @@ def next_id(period: str) -> str:
             suffix = path.stem[len(prefix):]
             if suffix.isdigit():
                 numbers.append(int(suffix))
+    removed_path = ROOT / "data" / "removed.yaml"
+    if removed_path.exists():
+        with removed_path.open(encoding="utf-8") as handle:
+            for tombstone in yaml.safe_load(handle) or []:
+                tombstone_id = str(tombstone.get("id", ""))
+                if tombstone_id.startswith(prefix):
+                    suffix = tombstone_id[len(prefix):]
+                    if suffix.isdigit():
+                        numbers.append(int(suffix))
     return f"{prefix}{max(numbers, default=0) + 1:06d}"
 
 
@@ -119,7 +128,6 @@ def build_record(payload: dict, taxonomies: dict, enums: dict) -> dict:
             "name": str(recruiter.get("name", "")).strip()[:60],
             "type": normalise(recruiter.get("type"), enums["recruiter_type"], "recruiter.type"),
             "company": str(recruiter.get("company", "")).strip()[:120],
-            "linkedin": (str(recruiter["linkedin"]).strip() if recruiter.get("linkedin") else None),
         },
         "hiring_company": (
             str(payload["hiring_company"]).strip()[:120]

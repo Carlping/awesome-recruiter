@@ -1,5 +1,5 @@
 const OWNER = 'Carlping';
-const REPO = 'awesome-recruiter';
+const REPO = 'awesome-recruiter-inbox';
 
 function first_(namedValues, title) {
   const values = namedValues[title] || [''];
@@ -12,8 +12,7 @@ function onFormSubmit(e) {
     recruiter: {
       name: first_(v, 'Recruiter 顯示名稱'),
       type: first_(v, 'Recruiter 類型'),
-      company: first_(v, 'Recruiter 所屬公司'),
-      linkedin: first_(v, 'Recruiter LinkedIn') || null
+      company: first_(v, 'Recruiter 所屬公司')
     },
     hiring_company: first_(v, '應徵公司') || null,
     industry: first_(v, '產業'),

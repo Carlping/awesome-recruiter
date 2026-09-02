@@ -36,7 +36,6 @@ def flatten(record: dict) -> dict:
         "recruiter_name": recruiter["name"],
         "recruiter_type": recruiter["type"],
         "recruiter_company": recruiter["company"],
-        "recruiter_linkedin": recruiter.get("linkedin"),
         "hiring_company": record.get("hiring_company"),
         "industry": record["industry"],
         "country": record["country"],

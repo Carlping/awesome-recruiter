@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import re
 import sys
+from datetime import date
 from pathlib import Path
 
 import jsonschema
@@ -15,6 +16,8 @@ SCHEMA_PATH = ROOT / "schema" / "review.schema.json"
 REVIEWS_PATH = ROOT / "data" / "reviews"
 TAXONOMY_PATH = ROOT / "taxonomy"
 SUBDIVISIONS_PATH = TAXONOMY_PATH / "subdivisions"
+REMOVED_PATH = ROOT / "data" / "removed.yaml"
+REVIEW_ID_RE = re.compile(r"^rv-\d{6}-\d{6}$")
 EMAIL_RE = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b")
 PHONE_RE = re.compile(
     r"(?<!\d)(?:\+?886[-\s]?)?0?9\d{2}[-\s]?\d{3}[-\s]?\d{3}(?!\d)"
@@ -123,6 +126,56 @@ def main() -> int:
         summary = record.get("summary")
         if isinstance(summary, str) and (EMAIL_RE.search(summary) or PHONE_RE.search(summary)):
             errors.append(f"{path.relative_to(ROOT)}: summary 不得包含電話或 Email")
+
+    try:
+        removed = load_yaml(REMOVED_PATH)
+    except (OSError, yaml.YAMLError) as exc:
+        errors.append(f"{REMOVED_PATH.relative_to(ROOT)}: YAML 解析失敗：{exc}")
+        removed = []
+    if not isinstance(removed, list):
+        errors.append(f"{REMOVED_PATH.relative_to(ROOT)}: 頂層必須是 list")
+        removed = []
+    removal_reasons = enums["removal_reason"]
+    for tombstone in removed:
+        if not isinstance(tombstone, dict):
+            errors.append(f"{REMOVED_PATH.relative_to(ROOT)}: 墓碑必須是 mapping")
+            continue
+        tombstone_id = tombstone.get("id")
+        if not isinstance(tombstone_id, str) or not REVIEW_ID_RE.fullmatch(tombstone_id):
+            errors.append(
+                f"{REMOVED_PATH.relative_to(ROOT)}: id {tombstone_id!r} 格式錯誤"
+            )
+        elif tombstone_id in seen:
+            errors.append(
+                f"{REMOVED_PATH.relative_to(ROOT)}: id {tombstone_id} 重複"
+            )
+        else:
+            seen[tombstone_id] = REMOVED_PATH
+        removed_at = tombstone.get("removed_at")
+        if isinstance(removed_at, date):
+            pass
+        elif isinstance(removed_at, str):
+            try:
+                date.fromisoformat(removed_at)
+            except ValueError:
+                errors.append(
+                    f"{REMOVED_PATH.relative_to(ROOT)}: removed_at={removed_at!r} 不是日期"
+                )
+        else:
+            errors.append(
+                f"{REMOVED_PATH.relative_to(ROOT)}: removed_at 必須是日期"
+            )
+        reason = tombstone.get("reason")
+        if reason not in removal_reasons:
+            errors.append(
+                f"{REMOVED_PATH.relative_to(ROOT)}: reason={reason!r} 不在 removal_reason taxonomy 中"
+            )
+        if isinstance(tombstone_id, str) and any(
+            path.stem == tombstone_id for path in files
+        ):
+            errors.append(
+                f"{REMOVED_PATH.relative_to(ROOT)}: tombstone id {tombstone_id} 仍存在 review 檔案"
+            )
 
     if errors:
         print("\n".join(errors), file=sys.stderr)

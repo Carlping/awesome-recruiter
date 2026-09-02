@@ -12,9 +12,17 @@
 
 請勿在 Issue 貼出求職者的個資。維護者可要求以私下管道補充文件。
 
+## 審查前不公開
+
+匿名表單資料會先進入私有 inbox repository，由維護者審查後才發佈至本公開 repository。未通過審查的投稿不會出現在公開資料、公開 PR 或公開 git history。
+
+## 資料最小化
+
+本專案不收集 recruiter 的 LinkedIn URL、Email 或電話。自由描述限 300 字，且系統會自動遮蔽摘要中的 Email 與電話。請勿在摘要中加入住址、私生活或其他不必要個資。
+
 ## 下架標準
 
-下列情況可將紀錄標為 `status: removed`：
+下列情況可啟動真實下架：
 
 - 含有電話、Email、住址、私生活或其他不必要的個人資料；
 - 有明顯造假、抄襲或重複投稿；
@@ -25,6 +33,15 @@
 
 ## 時限與處理方式
 
-收到申訴後 7 個日曆日內確認收件，通常在 14 個日曆日內完成初步處理。複雜案件會說明延後原因。必要時先將 `status` 改為 `flagged`，完成判定後修正內容、保留、或改為 `removed`。
+收到申訴後 7 個日曆日內確認收件，通常在 14 個日曆日內完成初步處理。複雜案件會說明延後原因；處理期間可暫停發佈或標記 `flagged`。
 
-下架不刪除 YAML 檔、不重用 `id`；只保留 `status: removed`，網站索引不會公開該筆內容。若是可修正的錯誤，會透過新的 PR 保留審查軌跡。
+## 真實下架與歷史清除
+
+下架不是只修改 `status`，而是：
+
+1. 真正刪除 `data/reviews/<year>/<id>.yaml`；
+2. 在 `data/removed.yaml` 留下只含 `id`、日期與原因的墓碑，id 永不重用；
+3. 依 [`docs/PURGE.md`](docs/PURGE.md) 清除 git history；
+4. 請 GitHub 清除 cache、搜尋結果與 fork 內容。
+
+維護者會保留下架處理紀錄（Issue 編號、日期與處理決定），作為 notice-and-takedown 證明。下架操作說明與必要命令見 [`docs/PURGE.md`](docs/PURGE.md)。

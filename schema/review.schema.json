@@ -29,17 +29,11 @@
     "recruiter": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["name", "type", "company", "linkedin"],
+      "required": ["name", "type", "company"],
       "properties": {
         "name": {"type": "string", "minLength": 1, "maxLength": 60},
         "type": {"type": "string"},
-        "company": {"type": "string", "minLength": 1, "maxLength": 120},
-        "linkedin": {
-          "anyOf": [
-            {"type": "null"},
-            {"type": "string", "pattern": "^https://www\\.linkedin\\.com/in/"}
-          ]
-        }
+        "company": {"type": "string", "minLength": 1, "maxLength": 120}
       }
     },
     "hiring_company": {"anyOf": [{"type": "null"}, {"type": "string", "maxLength": 120}]},

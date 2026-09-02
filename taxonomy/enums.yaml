@@ -64,8 +64,19 @@ status:
     label_zh: 公開
   flagged:
     label_zh: 待查核
-  removed:
-    label_zh: 已下架
+removal_reason:
+  pii:
+    label_zh: 含個資
+  defamation_claim:
+    label_zh: 申訴後無法佐證
+  harassment:
+    label_zh: 人身攻擊／騷擾
+  fake:
+    label_zh: 造假／重複
+  requester:
+    label_zh: 投稿者自行要求
+  legal:
+    label_zh: 法律要求
 score_dimensions:
   responsiveness:
     label_zh: 回應速度

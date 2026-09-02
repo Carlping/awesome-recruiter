@@ -7,7 +7,6 @@
 | Recruiter 顯示名稱 | 簡答 | 1–60 字；可使用匿名化名稱 | `recruiter.name` |
 | Recruiter 類型 | 單選 | 企業內部 HR；獵頭；仲介／派遣；RPO；不確定 | `recruiter.type` |
 | Recruiter 所屬公司 | 簡答 | 必填，1–120 字 | `recruiter.company` |
-| Recruiter LinkedIn | 簡答 | 選填，`https://www.linkedin.com/in/` 開頭 | `recruiter.linkedin` |
 | 應徵公司 | 簡答 | 選填 | `hiring_company` |
 | 產業 | 下拉選單 | 半導體；硬體／電子；軟體；網路平台；金融科技；金融／銀行；保險；顧問；電商／零售；製造；生技／製藥；醫療；教育；媒體／行銷；遊戲；電信；政府／非營利；其他 | `industry` |
 | 國家／地區 | 下拉選單 | 台灣；美國；加拿大；日本；韓國；中國大陸；香港；新加坡；馬來西亞；泰國；越南；澳洲；紐西蘭；英國；愛爾蘭；德國；荷蘭；法國；瑞士；瑞典；丹麥；芬蘭；挪威；西班牙；義大利；波蘭；捷克；阿聯；印度；全遠端／不限地點；其他 | `country` |

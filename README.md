@@ -19,15 +19,21 @@
 ## 如何參與
 
 - **匿名表單**：[填寫匿名評價表單（連結待設定）](https://example.com/anonymous-recruiter-review-form)
-- **直接開 PR**：依 `schema/review.schema.json` 新增一筆 YAML，並先在本機執行驗證。
+- **協助維護**：依治理文件回報資料問題或提出修正建議。
 - **Fork 分析資料**：執行 `scripts/build_index.py` 產生本地索引，或直接分析 `data/reviews/`。
+
+## 系統架構
+
+Google Form → Apps Script → private inbox repo
+（`Carlping/awesome-recruiter-inbox`）→ 維護者審核 → 自動推送至本 repo。
+投稿在審查完成前不會進入公開 repository。
 
 ## 資料欄位
 
 | 欄位 | 說明 |
 | --- | --- |
 | `id`、`submitted_at`、`period` | 評價識別碼、提交日期、經歷月份 |
-| `recruiter.name`、`type`、`company`、`linkedin` | recruiter 顯示名稱、類型、所屬公司、可選的公開 LinkedIn |
+| `recruiter.name`、`type`、`company` | recruiter 顯示名稱、類型與所屬公司 |
 | `hiring_company` | 應徵公司；與 recruiter 所屬公司不同時才填 |
 | `industry`、`country`、`admin_area`、`metro`、`role_family`、`seniority`、`channel` | 產業、國家／地區、ISO 第一級行政區、都會區；後兩者依國家 taxonomy 選填 |
 | `stage_reached`、`ghosted` | 走到的階段與是否無聲卡 |
