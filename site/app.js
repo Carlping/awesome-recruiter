@@ -19,9 +19,15 @@ async function load() {
   $('repo-link').href = CONFIG.repoUrl;
   $('form-link').href = CONFIG.formUrl;
   fillSelect('industry', tax.industries);
-  fillSelect('region', tax.regions);
+  fillSelect('country', tax.countries);
+  fillSelect('tw_region', tax.tw_regions);
+  $('country').addEventListener('input', () => {
+    const isTw = !$('country').value || $('country').value === 'tw';
+    $('tw_region').disabled = !isTw;
+    if (!isTw) $('tw_region').value = '';
+  });
   fillSelect('recruiter_type', tax.recruiter_type);
-  ['q', 'industry', 'region', 'recruiter_type', 'sort'].forEach((id) => $(id).addEventListener('input', render));
+  ['q', 'industry', 'country', 'tw_region', 'recruiter_type', 'sort'].forEach((id) => $(id).addEventListener('input', render));
   document.querySelectorAll('.tabs button').forEach((b) =>
     b.addEventListener('click', () => {
       state.view = b.dataset.view;
@@ -49,10 +55,11 @@ function label(group, key) {
 function matches(r) {
   const q = $('q').value.trim().toLowerCase();
   if ($('industry').value && r.industry !== $('industry').value) return false;
-  if ($('region').value && r.region !== $('region').value) return false;
+  if ($('country').value && r.country !== $('country').value) return false;
+  if ($('tw_region').value && r.tw_region !== $('tw_region').value) return false;
   if ($('recruiter_type').value && r.recruiter_type !== $('recruiter_type').value) return false;
   if (!q) return true;
-  const hay = [r.recruiter_name, r.recruiter_company, r.hiring_company, r.summary, label('industries', r.industry), label('regions', r.region)]
+  const hay = [r.recruiter_name, r.recruiter_company, r.hiring_company, r.summary, label('industries', r.industry), label('countries', r.country), label('tw_regions', r.tw_region)]
     .filter(Boolean).join(' ').toLowerCase();
   return hay.includes(q);
 }
@@ -81,12 +88,13 @@ function reviewCard(r) {
   const tags = [
     label('recruiter_type', r.recruiter_type),
     label('industries', r.industry),
-    label('regions', r.region),
+    label('countries', r.country),
+    r.tw_region ? label('tw_regions', r.tw_region) : null,
     label('role_families', r.role_family),
     label('seniority', r.seniority),
     label('channel', r.channel),
     label('stage_reached', r.stage_reached),
-  ].map((t) => `<span class="tag">${esc(t)}</span>`);
+  ].filter(Boolean).map((t) => `<span class="tag">${esc(t)}</span>`);
   if (r.ghosted) tags.push('<span class="tag warn">無聲卡</span>');
   if (!r.salary_disclosed_upfront) tags.push('<span class="tag warn">未事前揭露薪資</span>');
   if (r.would_engage_again) tags.push('<span class="tag">願意再次接觸</span>');
