@@ -1,0 +1,36 @@
+semiconductor:
+  label_zh: 半導體
+hardware_electronics:
+  label_zh: 硬體／電子
+software:
+  label_zh: 軟體
+internet_platform:
+  label_zh: 網路平台
+fintech:
+  label_zh: 金融科技
+finance_banking:
+  label_zh: 金融／銀行
+insurance:
+  label_zh: 保險
+consulting:
+  label_zh: 顧問
+ecommerce_retail:
+  label_zh: 電商／零售
+manufacturing:
+  label_zh: 製造
+biotech_pharma:
+  label_zh: 生技／製藥
+healthcare:
+  label_zh: 醫療
+education:
+  label_zh: 教育
+media_marketing:
+  label_zh: 媒體／行銷
+gaming:
+  label_zh: 遊戲
+telecom:
+  label_zh: 電信
+government_nonprofit:
+  label_zh: 政府／非營利
+other:
+  label_zh: 其他

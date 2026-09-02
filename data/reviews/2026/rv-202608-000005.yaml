@@ -1,0 +1,27 @@
+id: rv-202608-000005
+submitted_at: "2026-08-15"
+recruiter:
+  name: 李安安（範例）
+  type: rpo
+  company: 示範人才服務中心
+  linkedin: null
+hiring_company: 範例醫療科技公司
+industry: healthcare
+region: south
+role_family: product_pm
+seniority: lead_manager
+channel: company_site
+period: "2026-08"
+stage_reached: offer
+scores:
+  responsiveness: 5
+  transparency: 5
+  professionalism: 5
+  respect: 5
+  closure: 5
+ghosted: false
+salary_disclosed_upfront: true
+would_engage_again: true
+summary: 從初談到 offer 都準時回覆，清楚說明職責、薪資與時程，面談安排也很尊重候選人。
+source: seed
+status: published

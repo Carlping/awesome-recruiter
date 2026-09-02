@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.com/recruiter-review-tw/review.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "submitted_at",
+    "recruiter",
+    "hiring_company",
+    "industry",
+    "region",
+    "role_family",
+    "seniority",
+    "channel",
+    "period",
+    "stage_reached",
+    "scores",
+    "ghosted",
+    "salary_disclosed_upfront",
+    "would_engage_again",
+    "summary",
+    "source",
+    "status"
+  ],
+  "properties": {
+    "id": {"type": "string", "pattern": "^rv-\\d{6}-\\d{6}$"},
+    "submitted_at": {"type": "string", "format": "date"},
+    "recruiter": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "type", "company", "linkedin"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1, "maxLength": 60},
+        "type": {"type": "string"},
+        "company": {"type": "string", "minLength": 1, "maxLength": 120},
+        "linkedin": {
+          "anyOf": [
+            {"type": "null"},
+            {"type": "string", "pattern": "^https://www\\.linkedin\\.com/in/"}
+          ]
+        }
+      }
+    },
+    "hiring_company": {"anyOf": [{"type": "null"}, {"type": "string", "maxLength": 120}]},
+    "industry": {"type": "string"},
+    "region": {"type": "string"},
+    "role_family": {"type": "string"},
+    "seniority": {"type": "string"},
+    "channel": {"type": "string"},
+    "period": {"type": "string", "pattern": "^\\d{4}-(0[1-9]|1[0-2])$"},
+    "stage_reached": {"type": "string"},
+    "scores": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "responsiveness",
+        "transparency",
+        "professionalism",
+        "respect",
+        "closure"
+      ],
+      "properties": {
+        "responsiveness": {"type": "integer", "minimum": 1, "maximum": 5},
+        "transparency": {"type": "integer", "minimum": 1, "maximum": 5},
+        "professionalism": {"type": "integer", "minimum": 1, "maximum": 5},
+        "respect": {"type": "integer", "minimum": 1, "maximum": 5},
+        "closure": {"type": "integer", "minimum": 1, "maximum": 5}
+      }
+    },
+    "ghosted": {"type": "boolean"},
+    "salary_disclosed_upfront": {"type": "boolean"},
+    "would_engage_again": {"type": "boolean"},
+    "summary": {"type": "string", "maxLength": 300},
+    "source": {"type": "string"},
+    "status": {"type": "string"}
+  }
+}

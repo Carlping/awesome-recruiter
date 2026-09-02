@@ -1,0 +1,79 @@
+recruiter_type:
+  in-house:
+    label_zh: 企業內部 HR
+  headhunter:
+    label_zh: 獵頭
+  agency:
+    label_zh: 仲介／派遣
+  rpo:
+    label_zh: RPO
+  unknown:
+    label_zh: 不確定
+seniority:
+  intern:
+    label_zh: 實習
+  junior:
+    label_zh: 初階
+  mid:
+    label_zh: 中階
+  senior:
+    label_zh: 資深
+  lead_manager:
+    label_zh: 主管／帶人
+channel:
+  "104":
+    label_zh: "104"
+  "1111":
+    label_zh: "1111"
+  linkedin:
+    label_zh: LinkedIn
+  yourator:
+    label_zh: Yourator
+  cakeresume:
+    label_zh: CakeResume
+  headhunter_outreach:
+    label_zh: 獵頭主動聯絡
+  referral:
+    label_zh: 內推
+  company_site:
+    label_zh: 公司官網
+  other:
+    label_zh: 其他
+stage_reached:
+  contacted:
+    label_zh: 僅聯絡
+  phone_screen:
+    label_zh: 電話初談
+  interview:
+    label_zh: 面試
+  offer:
+    label_zh: 拿到 offer
+  rejected:
+    label_zh: 被拒絕
+  ghosted:
+    label_zh: 無聲卡
+source:
+  form:
+    label_zh: 匿名表單
+  pr:
+    label_zh: GitHub PR
+  seed:
+    label_zh: 示範資料
+status:
+  published:
+    label_zh: 公開
+  flagged:
+    label_zh: 待查核
+  removed:
+    label_zh: 已下架
+score_dimensions:
+  responsiveness:
+    label_zh: 回應速度
+  transparency:
+    label_zh: 資訊透明
+  professionalism:
+    label_zh: 專業度
+  respect:
+    label_zh: 尊重
+  closure:
+    label_zh: 結果通知

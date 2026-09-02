@@ -1,0 +1,27 @@
+id: rv-202608-000002
+submitted_at: "2026-08-28"
+recruiter:
+  name: 林小華（範例）
+  type: headhunter
+  company: 示範獵頭顧問有限公司
+  linkedin: null
+hiring_company: 示範雲端股份有限公司
+industry: semiconductor
+region: taoyuan_hsinchu_miaoli
+role_family: hardware_eng
+seniority: senior
+channel: headhunter_outreach
+period: "2026-08"
+stage_reached: contacted
+scores:
+  responsiveness: 3
+  transparency: 1
+  professionalism: 2
+  respect: 3
+  closure: 2
+ghosted: false
+salary_disclosed_upfront: false
+would_engage_again: false
+summary: 主動聯絡但一次寄送多個不相干職缺，沒有先確認經驗，薪資區間也未說明。
+source: seed
+status: published

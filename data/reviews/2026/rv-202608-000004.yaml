@@ -1,0 +1,27 @@
+id: rv-202608-000004
+submitted_at: "2026-08-20"
+recruiter:
+  name: 趙大偉（範例）
+  type: agency
+  company: 範例人才派遣社
+  linkedin: null
+hiring_company: 示範製造股份有限公司
+industry: manufacturing
+region: central
+role_family: operations
+seniority: mid
+channel: "1111"
+period: "2026-08"
+stage_reached: rejected
+scores:
+  responsiveness: 3
+  transparency: 3
+  professionalism: 3
+  respect: 2
+  closure: 4
+ghosted: false
+salary_disclosed_upfront: true
+would_engage_again: false
+summary: 職缺資訊大致完整，但兩次臨時更改面談時間，最後仍有明確通知結果。
+source: seed
+status: published

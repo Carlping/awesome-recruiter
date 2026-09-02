@@ -1,0 +1,28 @@
+software_eng:
+  label_zh: 軟體工程
+data_ai:
+  label_zh: 資料／AI
+hardware_eng:
+  label_zh: 硬體工程
+product_pm:
+  label_zh: 產品／專案管理
+design:
+  label_zh: 設計
+marketing:
+  label_zh: 行銷
+sales_bd:
+  label_zh: 業務／商務開發
+operations:
+  label_zh: 營運
+finance_accounting:
+  label_zh: 財務／會計
+hr:
+  label_zh: 人資
+legal:
+  label_zh: 法務
+customer_support:
+  label_zh: 客服
+research:
+  label_zh: 研究
+other:
+  label_zh: 其他

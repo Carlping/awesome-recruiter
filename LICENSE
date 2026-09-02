@@ -1,0 +1,6 @@
+本儲存庫包含兩種授權：
+
+1. **程式碼**（`scripts/`、`ingest/`、工作流程設定，以及其他程式碼與設定）：MIT License，全文見 `LICENSE-CODE`。
+2. **資料與文件**（`data/`、`taxonomy/`、`schema/`、以及 README、指南等非程式碼內容）：Creative Commons Attribution-ShareAlike 4.0 International（CC BY-SA 4.0），全文見 `LICENSE-DATA`。
+
+使用時請依上述範圍保留適當的著作權與授權聲明。若檔案另有明確標示，從其標示。

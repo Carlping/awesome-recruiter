@@ -1,0 +1,27 @@
+id: rv-202608-000001
+submitted_at: "2026-08-30"
+recruiter:
+  name: 王小明（範例）
+  type: in-house
+  company: 範例科技股份有限公司
+  linkedin: null
+hiring_company: null
+industry: software
+region: taipei
+role_family: software_eng
+seniority: mid
+channel: linkedin
+period: "2026-08"
+stage_reached: ghosted
+scores:
+  responsiveness: 2
+  transparency: 2
+  professionalism: 3
+  respect: 3
+  closure: 1
+ghosted: true
+salary_disclosed_upfront: false
+would_engage_again: false
+summary: 面試後先說一週內通知，之後多次追問都沒有回覆，最後成為無聲卡。
+source: seed
+status: published
