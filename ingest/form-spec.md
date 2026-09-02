@@ -16,11 +16,11 @@
 | 接觸管道 | 下拉選單 | 104；1111；LinkedIn；Yourator；CakeResume；獵頭主動聯絡；內推；公司官網；其他 | `channel` |
 | 評價月份 | 簡答 | `YYYY-MM` | `period` |
 | 走到的階段 | 單選 | 僅聯絡；電話初談；面試；拿到 offer；被拒絕；無聲卡 | `stage_reached` |
-| 回應速度 | 線性刻度 | 1–5 | `scores.score_responsiveness` |
-| 資訊透明 | 線性刻度 | 1–5 | `scores.score_transparency` |
-| 專業度 | 線性刻度 | 1–5 | `scores.score_professionalism` |
-| 尊重 | 線性刻度 | 1–5 | `scores.score_respect` |
-| 結果通知 | 線性刻度 | 1–5 | `scores.score_closure` |
+| 回應速度 | 線性刻度 | 1–5 | `score_responsiveness` |
+| 資訊透明 | 線性刻度 | 1–5 | `score_transparency` |
+| 專業度 | 線性刻度 | 1–5 | `score_professionalism` |
+| 尊重 | 線性刻度 | 1–5 | `score_respect` |
+| 結果通知 | 線性刻度 | 1–5 | `score_closure` |
 | 是否無聲卡 | 單選 | 是；否 | `ghosted` |
 | 是否事前揭露薪資 | 單選 | 是；否 | `salary_disclosed_upfront` |
 | 是否願意再次接觸 | 單選 | 是；否 | `would_engage_again` |

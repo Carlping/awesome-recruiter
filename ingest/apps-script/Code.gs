@@ -23,13 +23,11 @@ function onFormSubmit(e) {
     channel: first_(v, '接觸管道'),
     period: first_(v, '評價月份'),
     stage_reached: first_(v, '走到的階段'),
-    scores: {
-      score_responsiveness: first_(v, '回應速度'),
-      score_transparency: first_(v, '資訊透明'),
-      score_professionalism: first_(v, '專業度'),
-      score_respect: first_(v, '尊重'),
-      score_closure: first_(v, '結果通知')
-    },
+    score_responsiveness: first_(v, '回應速度'),
+    score_transparency: first_(v, '資訊透明'),
+    score_professionalism: first_(v, '專業度'),
+    score_respect: first_(v, '尊重'),
+    score_closure: first_(v, '結果通知'),
     ghosted: first_(v, '是否無聲卡'),
     salary_disclosed_upfront: first_(v, '是否事前揭露薪資'),
     would_engage_again: first_(v, '是否願意再次接觸'),

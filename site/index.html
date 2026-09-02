@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Recruiter Review TW — 台灣 recruiter 面試體驗資料庫</title>
+<style>
+  :root { --bg:#f7f7f5; --card:#fff; --ink:#1d1d1b; --muted:#6b6b66; --line:#e3e3df; --accent:#0f6b5c; --bad:#b3261e; --ok:#2e7d32; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family: -apple-system, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif; background:var(--bg); color:var(--ink); }
+  header { padding:28px 20px 12px; max-width:1100px; margin:0 auto; }
+  header h1 { margin:0 0 6px; font-size:26px; }
+  header p { margin:0; color:var(--muted); }
+  header a { color:var(--accent); }
+  .cta { display:inline-block; margin-top:10px; padding:8px 14px; background:var(--accent); color:#fff; border-radius:6px; text-decoration:none; font-weight:600; }
+  main { max-width:1100px; margin:0 auto; padding:0 20px 60px; }
+  .filters { display:grid; grid-template-columns: 2fr repeat(4, 1fr); gap:10px; margin:16px 0; }
+  .filters input, .filters select { width:100%; padding:10px 12px; border:1px solid var(--line); border-radius:6px; font-size:15px; background:#fff; }
+  .meta { display:flex; justify-content:space-between; align-items:center; color:var(--muted); font-size:14px; margin-bottom:10px; flex-wrap:wrap; gap:8px; }
+  .tabs button { border:1px solid var(--line); background:#fff; padding:6px 12px; border-radius:6px; cursor:pointer; font-size:14px; }
+  .tabs button.active { background:var(--ink); color:#fff; border-color:var(--ink); }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:8px; padding:14px 16px; margin-bottom:10px; }
+  .card h3 { margin:0 0 4px; font-size:17px; }
+  .card .sub { color:var(--muted); font-size:14px; }
+  .tags { margin:8px 0; display:flex; flex-wrap:wrap; gap:6px; }
+  .tag { font-size:12px; padding:2px 8px; border-radius:999px; background:#eef2f1; color:#2f4f49; }
+  .tag.warn { background:#fbe9e7; color:var(--bad); }
+  .scores { display:grid; grid-template-columns: repeat(5, 1fr); gap:6px; margin:8px 0; }
+  .score { font-size:13px; text-align:center; padding:6px 4px; border-radius:6px; background:#f1f1ee; }
+  .score b { display:block; font-size:16px; }
+  .score.low { background:#fbe9e7; } .score.high { background:#e8f5e9; }
+  .summary { margin:6px 0 0; font-size:15px; line-height:1.55; white-space:pre-wrap; }
+  .overall { float:right; font-size:22px; font-weight:700; }
+  .overall small { font-size:12px; color:var(--muted); font-weight:400; }
+  .empty { text-align:center; color:var(--muted); padding:40px; }
+  footer { max-width:1100px; margin:0 auto; padding:20px; color:var(--muted); font-size:13px; border-top:1px solid var(--line); }
+  @media (max-width:800px) { .filters { grid-template-columns:1fr 1fr; } .filters input { grid-column:1/-1; } .scores { grid-template-columns:repeat(5,1fr); } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Recruiter Review TW</h1>
+  <p>台灣求職者匿名記錄與 recruiter／HR／獵頭互動體驗的開放資料庫。資料以 YAML 存放於 <a id="repo-link" href="#">GitHub</a>，任何人可下載分析。</p>
+  <a class="cta" id="form-link" href="#" target="_blank" rel="noopener">匿名填寫一筆評價（約 3 分鐘）</a>
+</header>
+<main>
+  <div class="filters">
+    <input id="q" type="search" placeholder="搜尋 recruiter 姓名、公司、應徵公司、關鍵字…">
+    <select id="industry"><option value="">所有產業</option></select>
+    <select id="region"><option value="">所有地區</option></select>
+    <select id="recruiter_type"><option value="">所有 recruiter 類型</option></select>
+    <select id="sort">
+      <option value="recent">最新</option>
+      <option value="low">評分最低</option>
+      <option value="high">評分最高</option>
+    </select>
+  </div>
+  <div class="meta">
+    <span id="count"></span>
+    <span class="tabs">
+      <button data-view="reviews" class="active">逐筆評價</button>
+      <button data-view="recruiters">依 recruiter 彙整</button>
+    </span>
+  </div>
+  <div id="results"></div>
+</main>
+<footer>
+  資料授權 CC BY-SA 4.0。所有紀錄為填寫者個人經驗；被點名者的申訴與下架流程見 repo 內 GOVERNANCE.md。「（範例）」標記的紀錄為虛構種子資料。
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

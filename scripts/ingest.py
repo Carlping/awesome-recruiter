@@ -82,7 +82,7 @@ def next_id(period: str) -> str:
 
 def build_record(payload: dict, taxonomies: dict, enums: dict) -> dict:
     recruiter = payload.get("recruiter") or {}
-    period = str(payload.get("period", "")).strip()
+    period = str(payload.get("period", "")).strip()[:7]
     record = {
         "id": next_id(period),
         "submitted_at": date.today().isoformat(),
