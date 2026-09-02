@@ -7,7 +7,8 @@ recruiter:
   linkedin: null
 hiring_company: 範例醫療科技公司
 industry: healthcare
-region: south
+country: sg
+tw_region: null
 role_family: product_pm
 seniority: lead_manager
 channel: company_site
@@ -22,6 +23,6 @@ scores:
 ghosted: false
 salary_disclosed_upfront: true
 would_engage_again: true
-summary: 從初談到 offer 都準時回覆，清楚說明職責、薪資與時程，面談安排也很尊重候選人。
+summary: 新加坡 recruiter 從初談到 offer 都準時回覆，清楚說明職責、薪資與 EP 流程，面談安排也很尊重候選人。
 source: seed
 status: published

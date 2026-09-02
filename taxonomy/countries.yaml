@@ -1,0 +1,93 @@
+tw:
+  label_zh: 台灣
+  aliases: [Taiwan, "Republic of China", ROC]
+us:
+  label_zh: 美國
+  aliases: [United States, USA, US]
+ca:
+  label_zh: 加拿大
+  aliases: [Canada]
+jp:
+  label_zh: 日本
+  aliases: [Japan]
+kr:
+  label_zh: 韓國
+  aliases: [South Korea, Korea]
+cn:
+  label_zh: 中國大陸
+  aliases: [China, Mainland China]
+hk:
+  label_zh: 香港
+  aliases: [Hong Kong]
+sg:
+  label_zh: 新加坡
+  aliases: [Singapore]
+my:
+  label_zh: 馬來西亞
+  aliases: [Malaysia]
+th:
+  label_zh: 泰國
+  aliases: [Thailand]
+vn:
+  label_zh: 越南
+  aliases: [Vietnam]
+au:
+  label_zh: 澳洲
+  aliases: [Australia]
+nz:
+  label_zh: 紐西蘭
+  aliases: [New Zealand]
+uk:
+  label_zh: 英國
+  aliases: [United Kingdom, UK, Britain]
+ie:
+  label_zh: 愛爾蘭
+  aliases: [Ireland]
+de:
+  label_zh: 德國
+  aliases: [Germany]
+nl:
+  label_zh: 荷蘭
+  aliases: [Netherlands, Holland]
+fr:
+  label_zh: 法國
+  aliases: [France]
+ch:
+  label_zh: 瑞士
+  aliases: [Switzerland]
+se:
+  label_zh: 瑞典
+  aliases: [Sweden]
+dk:
+  label_zh: 丹麥
+  aliases: [Denmark]
+fi:
+  label_zh: 芬蘭
+  aliases: [Finland]
+no:
+  label_zh: 挪威
+  aliases: [Norway]
+es:
+  label_zh: 西班牙
+  aliases: [Spain]
+it:
+  label_zh: 義大利
+  aliases: [Italy]
+pl:
+  label_zh: 波蘭
+  aliases: [Poland]
+cz:
+  label_zh: 捷克
+  aliases: [Czech Republic, Czechia]
+ae:
+  label_zh: 阿聯
+  aliases: [United Arab Emirates, UAE]
+in:
+  label_zh: 印度
+  aliases: [India]
+remote:
+  label_zh: 全遠端／不限地點
+  aliases: [Remote, Worldwide, Fully remote]
+other:
+  label_zh: 其他
+  aliases: [Other]

@@ -39,7 +39,8 @@ def flatten(record: dict) -> dict:
         "recruiter_linkedin": recruiter.get("linkedin"),
         "hiring_company": record.get("hiring_company"),
         "industry": record["industry"],
-        "region": record["region"],
+        "country": record["country"],
+        "tw_region": record.get("tw_region"),
         "role_family": record["role_family"],
         "seniority": record["seniority"],
         "channel": record["channel"],
@@ -76,7 +77,8 @@ def main() -> int:
     taxonomy = {}
     for filename, output_key in (
         ("industries.yaml", "industries"),
-        ("regions.yaml", "regions"),
+        ("countries.yaml", "countries"),
+        ("tw_regions.yaml", "tw_regions"),
         ("role_families.yaml", "role_families"),
     ):
         with (ROOT / "taxonomy" / filename).open(encoding="utf-8") as handle:

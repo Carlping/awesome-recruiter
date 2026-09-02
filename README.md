@@ -1,6 +1,6 @@
 # Recruiter Review TW
 
-以匿名、結構化的方式，讓台灣求職者分享對個別 recruiter／HR／獵頭的真實求職體驗。
+以匿名、結構化的方式，讓台灣人在世界各地分享對個別 recruiter／HR／獵頭的真實求職體驗。
 
 ## 為什麼做
 
@@ -29,7 +29,7 @@
 | `id`、`submitted_at`、`period` | 評價識別碼、提交日期、經歷月份 |
 | `recruiter.name`、`type`、`company`、`linkedin` | recruiter 顯示名稱、類型、所屬公司、可選的公開 LinkedIn |
 | `hiring_company` | 應徵公司；與 recruiter 所屬公司不同時才填 |
-| `industry`、`region`、`role_family`、`seniority`、`channel` | 產業、地區、職務族群、職級、接觸管道 |
+| `industry`、`country`、`tw_region`、`role_family`、`seniority`、`channel` | 產業、國家／地區、台灣子地區（僅台灣可填）、職務族群、職級、接觸管道 |
 | `stage_reached`、`ghosted` | 走到的階段與是否無聲卡 |
 | `scores` | 回應速度、資訊透明、專業度、尊重、結果通知，均為 1–5 |
 | `salary_disclosed_upfront`、`would_engage_again` | 是否事前揭露薪資、是否願意再次接觸 |

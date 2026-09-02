@@ -12,7 +12,5 @@ east_islands:
   label_zh: 東部與離島
 remote:
   label_zh: 遠端
-overseas:
-  label_zh: 海外
 unknown:
   label_zh: 不確定

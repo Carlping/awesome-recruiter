@@ -7,7 +7,8 @@ recruiter:
   linkedin: null
 hiring_company: 示範雲端股份有限公司
 industry: semiconductor
-region: taoyuan_hsinchu_miaoli
+country: us
+tw_region: null
 role_family: hardware_eng
 seniority: senior
 channel: headhunter_outreach
@@ -22,6 +23,6 @@ scores:
 ghosted: false
 salary_disclosed_upfront: false
 would_engage_again: false
-summary: 主動聯絡但一次寄送多個不相干職缺，沒有先確認經驗，薪資區間也未說明。
+summary: 美國 recruiter 透過視訊聯絡，因時差回覆較慢，且一次寄送多個不相干職缺，薪資區間也未說明。
 source: seed
 status: published

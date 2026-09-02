@@ -31,7 +31,8 @@ def main() -> int:
         schema = __import__("json").load(handle)
     taxonomies = {
         "industry": load_yaml(TAXONOMY_PATH / "industries.yaml"),
-        "region": load_yaml(TAXONOMY_PATH / "regions.yaml"),
+        "country": load_yaml(TAXONOMY_PATH / "countries.yaml"),
+        "tw_region": load_yaml(TAXONOMY_PATH / "tw_regions.yaml"),
         "role_family": load_yaml(TAXONOMY_PATH / "role_families.yaml"),
     }
     enums = load_yaml(TAXONOMY_PATH / "enums.yaml")
@@ -74,7 +75,7 @@ def main() -> int:
 
         field_values = {
             "industry": record.get("industry"),
-            "region": record.get("region"),
+            "country": record.get("country"),
             "role_family": record.get("role_family"),
             "recruiter_type": (record.get("recruiter") or {}).get("type"),
             "seniority": record.get("seniority"),
@@ -88,6 +89,16 @@ def main() -> int:
                 errors.append(
                     f"{path.relative_to(ROOT)}: {field}={value!r} 不在 taxonomy 中"
                 )
+        country = record.get("country")
+        tw_region = record.get("tw_region")
+        if tw_region is not None and tw_region not in taxonomies["tw_region"]:
+            errors.append(
+                f"{path.relative_to(ROOT)}: tw_region={tw_region!r} 不在 taxonomy 中"
+            )
+        if country != "tw" and tw_region is not None:
+            errors.append(
+                f"{path.relative_to(ROOT)}: country 非 tw 時 tw_region 必須為 null"
+            )
 
         summary = record.get("summary")
         if isinstance(summary, str) and (EMAIL_RE.search(summary) or PHONE_RE.search(summary)):

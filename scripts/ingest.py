@@ -83,6 +83,13 @@ def next_id(period: str) -> str:
 def build_record(payload: dict, taxonomies: dict, enums: dict) -> dict:
     recruiter = payload.get("recruiter") or {}
     period = str(payload.get("period", "")).strip()[:7]
+    country = normalise(payload.get("country"), taxonomies["country"], "country")
+    tw_region_value = payload.get("tw_region")
+    tw_region = (
+        normalise(tw_region_value, taxonomies["tw_region"], "tw_region")
+        if country == "tw" and str(tw_region_value or "").strip()
+        else None
+    )
     record = {
         "id": next_id(period),
         "submitted_at": date.today().isoformat(),
@@ -98,7 +105,8 @@ def build_record(payload: dict, taxonomies: dict, enums: dict) -> dict:
             else None
         ),
         "industry": normalise(payload.get("industry"), taxonomies["industry"], "industry"),
-        "region": normalise(payload.get("region"), taxonomies["region"], "region"),
+        "country": country,
+        "tw_region": tw_region,
         "role_family": normalise(
             payload.get("role_family"), taxonomies["role_family"], "role_family"
         ),
@@ -135,7 +143,8 @@ def main() -> int:
         raise ValueError("payload 必須包含 review mapping")
     taxonomies = {
         "industry": load_yaml("industries.yaml"),
-        "region": load_yaml("regions.yaml"),
+        "country": load_yaml("countries.yaml"),
+        "tw_region": load_yaml("tw_regions.yaml"),
         "role_family": load_yaml("role_families.yaml"),
     }
     enums = load_yaml("enums.yaml")
