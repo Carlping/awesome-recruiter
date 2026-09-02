@@ -14,6 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SCHEMA_PATH = ROOT / "schema" / "review.schema.json"
 REVIEWS_PATH = ROOT / "data" / "reviews"
 TAXONOMY_PATH = ROOT / "taxonomy"
+SUBDIVISIONS_PATH = TAXONOMY_PATH / "subdivisions"
 EMAIL_RE = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b")
 PHONE_RE = re.compile(
     r"(?<!\d)(?:\+?886[-\s]?)?0?9\d{2}[-\s]?\d{3}[-\s]?\d{3}(?!\d)"
@@ -26,13 +27,17 @@ def load_yaml(path: Path):
         return yaml.safe_load(handle)
 
 
+def load_subdivision(country: str) -> dict | None:
+    path = SUBDIVISIONS_PATH / f"{country}.yaml"
+    return load_yaml(path) if path.exists() else None
+
+
 def main() -> int:
     with SCHEMA_PATH.open(encoding="utf-8") as handle:
         schema = __import__("json").load(handle)
     taxonomies = {
         "industry": load_yaml(TAXONOMY_PATH / "industries.yaml"),
         "country": load_yaml(TAXONOMY_PATH / "countries.yaml"),
-        "tw_region": load_yaml(TAXONOMY_PATH / "tw_regions.yaml"),
         "role_family": load_yaml(TAXONOMY_PATH / "role_families.yaml"),
     }
     enums = load_yaml(TAXONOMY_PATH / "enums.yaml")
@@ -90,15 +95,30 @@ def main() -> int:
                     f"{path.relative_to(ROOT)}: {field}={value!r} 不在 taxonomy 中"
                 )
         country = record.get("country")
-        tw_region = record.get("tw_region")
-        if tw_region is not None and tw_region not in taxonomies["tw_region"]:
-            errors.append(
-                f"{path.relative_to(ROOT)}: tw_region={tw_region!r} 不在 taxonomy 中"
-            )
-        if country != "tw" and tw_region is not None:
-            errors.append(
-                f"{path.relative_to(ROOT)}: country 非 tw 時 tw_region 必須為 null"
-            )
+        admin_area = record.get("admin_area")
+        metro = record.get("metro")
+        subdivision = load_subdivision(country) if country in taxonomies["country"] else None
+        if subdivision is None:
+            if admin_area is not None or metro is not None:
+                errors.append(
+                    f"{path.relative_to(ROOT)}: country 沒有 subdivision taxonomy 時 admin_area/metro 必須為 null"
+                )
+        else:
+            if admin_area is not None and admin_area not in subdivision["admin_areas"]:
+                errors.append(
+                    f"{path.relative_to(ROOT)}: admin_area={admin_area!r} 不在 taxonomy 中"
+                )
+            if metro is not None and metro not in subdivision["metros"]:
+                errors.append(
+                    f"{path.relative_to(ROOT)}: metro={metro!r} 不在 taxonomy 中"
+                )
+            metro_definition = subdivision["metros"].get(metro) if metro else None
+            allowed_admin_areas = (metro_definition or {}).get("admin_areas", [])
+            if admin_area is not None and metro_definition and allowed_admin_areas:
+                if admin_area not in allowed_admin_areas:
+                    errors.append(
+                        f"{path.relative_to(ROOT)}: admin_area={admin_area!r} 不屬於 metro={metro!r}"
+                    )
 
         summary = record.get("summary")
         if isinstance(summary, str) and (EMAIL_RE.search(summary) or PHONE_RE.search(summary)):

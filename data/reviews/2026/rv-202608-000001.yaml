@@ -8,7 +8,8 @@ recruiter:
 hiring_company: null
 industry: software
 country: tw
-tw_region: taipei
+admin_area: tpe
+metro: taipei_metro
 role_family: software_eng
 seniority: mid
 channel: linkedin

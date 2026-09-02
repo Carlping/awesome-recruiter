@@ -8,7 +8,8 @@ recruiter:
 hiring_company: 示範雲端股份有限公司
 industry: semiconductor
 country: us
-tw_region: null
+admin_area: ca
+metro: sf_bay_area
 role_family: hardware_eng
 seniority: senior
 channel: headhunter_outreach

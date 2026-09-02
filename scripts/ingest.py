@@ -13,6 +13,7 @@ import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 TAXONOMY_PATH = ROOT / "taxonomy"
+SUBDIVISIONS_PATH = TAXONOMY_PATH / "subdivisions"
 REVIEWS_PATH = ROOT / "data" / "reviews"
 EMAIL_RE = re.compile(r"\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\b")
 PHONE_RE = re.compile(
@@ -30,14 +31,24 @@ def normalise(value, mapping: dict, field: str):
     if value is None:
         return None
     text = str(value).strip()
-    if text in mapping:
-        return text
     folded = text.casefold()
+    for key in mapping:
+        if folded == str(key).casefold():
+            return key
     for key, definition in mapping.items():
-        candidates = [definition.get("label_zh", ""), *definition.get("aliases", [])]
+        candidates = [
+            definition.get("label_zh", ""),
+            definition.get("label_en", ""),
+            *definition.get("aliases", []),
+        ]
         if any(folded == str(candidate).strip().casefold() for candidate in candidates):
             return key
     raise ValueError(f"{field} 無法對應 taxonomy：{value!r}")
+
+
+def load_subdivision(country: str) -> dict | None:
+    path = SUBDIVISIONS_PATH / f"{country}.yaml"
+    return load_yaml(str(path.relative_to(TAXONOMY_PATH))) if path.exists() else None
 
 
 def as_bool(value) -> bool:
@@ -84,12 +95,23 @@ def build_record(payload: dict, taxonomies: dict, enums: dict) -> dict:
     recruiter = payload.get("recruiter") or {}
     period = str(payload.get("period", "")).strip()[:7]
     country = normalise(payload.get("country"), taxonomies["country"], "country")
-    tw_region_value = payload.get("tw_region")
-    tw_region = (
-        normalise(tw_region_value, taxonomies["tw_region"], "tw_region")
-        if country == "tw" and str(tw_region_value or "").strip()
+    subdivision = load_subdivision(country)
+    admin_area_value = payload.get("admin_area")
+    metro_value = payload.get("metro")
+    admin_area = (
+        normalise(admin_area_value, subdivision["admin_areas"], "admin_area")
+        if subdivision and str(admin_area_value or "").strip()
         else None
     )
+    metro = (
+        normalise(metro_value, subdivision["metros"], "metro")
+        if subdivision and str(metro_value or "").strip()
+        else None
+    )
+    if admin_area is None and metro is not None:
+        metro_admin_areas = subdivision["metros"][metro].get("admin_areas", [])
+        if len(metro_admin_areas) == 1:
+            admin_area = metro_admin_areas[0]
     record = {
         "id": next_id(period),
         "submitted_at": date.today().isoformat(),
@@ -106,7 +128,8 @@ def build_record(payload: dict, taxonomies: dict, enums: dict) -> dict:
         ),
         "industry": normalise(payload.get("industry"), taxonomies["industry"], "industry"),
         "country": country,
-        "tw_region": tw_region,
+        "admin_area": admin_area,
+        "metro": metro,
         "role_family": normalise(
             payload.get("role_family"), taxonomies["role_family"], "role_family"
         ),
@@ -144,7 +167,6 @@ def main() -> int:
     taxonomies = {
         "industry": load_yaml("industries.yaml"),
         "country": load_yaml("countries.yaml"),
-        "tw_region": load_yaml("tw_regions.yaml"),
         "role_family": load_yaml("role_families.yaml"),
     }
     enums = load_yaml("enums.yaml")

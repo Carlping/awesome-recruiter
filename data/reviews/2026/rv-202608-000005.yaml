@@ -8,7 +8,8 @@ recruiter:
 hiring_company: 範例醫療科技公司
 industry: healthcare
 country: sg
-tw_region: null
+admin_area: null
+metro: null
 role_family: product_pm
 seniority: lead_manager
 channel: company_site

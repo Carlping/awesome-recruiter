@@ -1,0 +1,361 @@
+admin_areas:
+  al:
+    label_zh: 阿拉巴馬州
+    label_en: Alabama
+    aliases: [AL]
+  ak:
+    label_zh: 阿拉斯加州
+    label_en: Alaska
+    aliases: [AK]
+  az:
+    label_zh: 亞利桑那州
+    label_en: Arizona
+    aliases: [AZ]
+  ar:
+    label_zh: 阿肯色州
+    label_en: Arkansas
+    aliases: [AR]
+  ca:
+    label_zh: 加利福尼亞州
+    label_en: California
+    aliases: [California, CA]
+  co:
+    label_zh: 科羅拉多州
+    label_en: Colorado
+    aliases: [CO]
+  ct:
+    label_zh: 康乃狄克州
+    label_en: Connecticut
+    aliases: [CT]
+  de:
+    label_zh: 德拉瓦州
+    label_en: Delaware
+    aliases: [DE]
+  fl:
+    label_zh: 佛羅里達州
+    label_en: Florida
+    aliases: [FL]
+  ga:
+    label_zh: 喬治亞州
+    label_en: Georgia
+    aliases: [GA]
+  hi:
+    label_zh: 夏威夷州
+    label_en: Hawaii
+    aliases: [HI]
+  id:
+    label_zh: 愛達荷州
+    label_en: Idaho
+    aliases: [ID]
+  il:
+    label_zh: 伊利諾州
+    label_en: Illinois
+    aliases: [IL]
+  in:
+    label_zh: 印第安納州
+    label_en: Indiana
+    aliases: [IN]
+  ia:
+    label_zh: 愛荷華州
+    label_en: Iowa
+    aliases: [IA]
+  ks:
+    label_zh: 堪薩斯州
+    label_en: Kansas
+    aliases: [KS]
+  ky:
+    label_zh: 肯塔基州
+    label_en: Kentucky
+    aliases: [KY]
+  la:
+    label_zh: 路易斯安那州
+    label_en: Louisiana
+    aliases: [LA]
+  me:
+    label_zh: 緬因州
+    label_en: Maine
+    aliases: [ME]
+  md:
+    label_zh: 馬里蘭州
+    label_en: Maryland
+    aliases: [MD]
+  ma:
+    label_zh: 麻薩諸塞州
+    label_en: Massachusetts
+    aliases: [MA]
+  mi:
+    label_zh: 密西根州
+    label_en: Michigan
+    aliases: [MI]
+  mn:
+    label_zh: 明尼蘇達州
+    label_en: Minnesota
+    aliases: [MN]
+  ms:
+    label_zh: 密西西比州
+    label_en: Mississippi
+    aliases: [MS]
+  mo:
+    label_zh: 密蘇里州
+    label_en: Missouri
+    aliases: [MO]
+  mt:
+    label_zh: 蒙大拿州
+    label_en: Montana
+    aliases: [MT]
+  ne:
+    label_zh: 內布拉斯加州
+    label_en: Nebraska
+    aliases: [NE]
+  nv:
+    label_zh: 內華達州
+    label_en: Nevada
+    aliases: [NV]
+  nh:
+    label_zh: 新罕布夏州
+    label_en: New Hampshire
+    aliases: [NH]
+  nj:
+    label_zh: 紐澤西州
+    label_en: New Jersey
+    aliases: [NJ]
+  nm:
+    label_zh: 新墨西哥州
+    label_en: New Mexico
+    aliases: [NM]
+  ny:
+    label_zh: 紐約州
+    label_en: New York
+    aliases: [NY]
+  nc:
+    label_zh: 北卡羅來納州
+    label_en: North Carolina
+    aliases: [NC]
+  nd:
+    label_zh: 北達科他州
+    label_en: North Dakota
+    aliases: [ND]
+  oh:
+    label_zh: 俄亥俄州
+    label_en: Ohio
+    aliases: [OH]
+  ok:
+    label_zh: 奧克拉荷馬州
+    label_en: Oklahoma
+    aliases: [OK]
+  or:
+    label_zh: 奧勒岡州
+    label_en: Oregon
+    aliases: [OR]
+  pa:
+    label_zh: 賓夕法尼亞州
+    label_en: Pennsylvania
+    aliases: [PA]
+  ri:
+    label_zh: 羅德島州
+    label_en: Rhode Island
+    aliases: [RI]
+  sc:
+    label_zh: 南卡羅來納州
+    label_en: South Carolina
+    aliases: [SC]
+  sd:
+    label_zh: 南達科他州
+    label_en: South Dakota
+    aliases: [SD]
+  tn:
+    label_zh: 田納西州
+    label_en: Tennessee
+    aliases: [TN]
+  tx:
+    label_zh: 德州
+    label_en: Texas
+    aliases: [TX]
+  ut:
+    label_zh: 猶他州
+    label_en: Utah
+    aliases: [UT]
+  vt:
+    label_zh: 佛蒙特州
+    label_en: Vermont
+    aliases: [VT]
+  va:
+    label_zh: 維吉尼亞州
+    label_en: Virginia
+    aliases: [VA]
+  wa:
+    label_zh: 華盛頓州
+    label_en: Washington
+    aliases: [WA]
+  wv:
+    label_zh: 西維吉尼亞州
+    label_en: West Virginia
+    aliases: [WV]
+  wi:
+    label_zh: 威斯康辛州
+    label_en: Wisconsin
+    aliases: [WI]
+  wy:
+    label_zh: 懷俄明州
+    label_en: Wyoming
+    aliases: [WY]
+  dc:
+    label_zh: 哥倫比亞特區
+    label_en: District of Columbia
+    aliases: [Washington DC, Washington, DC]
+metros:
+  sf_bay_area:
+    label_zh: 舊金山灣區
+    label_en: San Francisco Bay Area
+    aliases: [San Francisco, SF, Bay Area, San Jose, Silicon Valley]
+    admin_areas: [ca]
+  seattle:
+    label_zh: 西雅圖
+    label_en: Greater Seattle Area
+    aliases: [Seattle]
+    admin_areas: [wa]
+  nyc:
+    label_zh: 紐約都會區
+    label_en: New York-Newark-Jersey City
+    aliases: [New York, NYC, Manhattan]
+    admin_areas: [ny, nj, pa]
+  la:
+    label_zh: 洛杉磯
+    label_en: Los Angeles-Long Beach-Anaheim
+    aliases: [Los Angeles, LA, Hollywood]
+    admin_areas: [ca]
+  chicago:
+    label_zh: 芝加哥
+    label_en: Chicago-Naperville-Elgin
+    aliases: [Chicago]
+    admin_areas: [il, in, wi]
+  dallas:
+    label_zh: 達拉斯
+    label_en: Dallas-Fort Worth-Arlington
+    aliases: [Dallas, DFW, Fort Worth]
+    admin_areas: [tx]
+  houston:
+    label_zh: 休士頓
+    label_en: Houston-The Woodlands-Sugar Land
+    aliases: [Houston]
+    admin_areas: [tx]
+  dc:
+    label_zh: 華盛頓特區
+    label_en: Washington-Arlington-Alexandria
+    aliases: [Washington DC, DC, Washington]
+    admin_areas: [dc, md, va, wv]
+  miami:
+    label_zh: 邁阿密
+    label_en: Miami-Fort Lauderdale-West Palm Beach
+    aliases: [Miami, South Florida]
+    admin_areas: [fl]
+  philadelphia:
+    label_zh: 費城
+    label_en: Philadelphia-Camden-Wilmington
+    aliases: [Philadelphia, Philly]
+    admin_areas: [pa, nj, de, md]
+  atlanta:
+    label_zh: 亞特蘭大
+    label_en: Atlanta-Sandy Springs-Alpharetta
+    aliases: [Atlanta]
+    admin_areas: [ga]
+  phoenix:
+    label_zh: 鳳凰城
+    label_en: Phoenix-Mesa-Chandler
+    aliases: [Phoenix]
+    admin_areas: [az]
+  boston:
+    label_zh: 波士頓
+    label_en: Boston-Cambridge-Newton
+    aliases: [Boston]
+    admin_areas: [ma, nh]
+  riverside:
+    label_zh: 河濱
+    label_en: Riverside-San Bernardino-Ontario
+    aliases: [Riverside, Inland Empire]
+    admin_areas: [ca]
+  detroit:
+    label_zh: 底特律
+    label_en: Detroit-Warren-Dearborn
+    aliases: [Detroit]
+    admin_areas: [mi]
+  minneapolis:
+    label_zh: 明尼阿波利斯
+    label_en: Minneapolis-St. Paul-Bloomington
+    aliases: [Minneapolis, Twin Cities]
+    admin_areas: [mn, wi]
+  san_diego:
+    label_zh: 聖地牙哥
+    label_en: San Diego-Chula Vista-Carlsbad
+    aliases: [San Diego]
+    admin_areas: [ca]
+  tampa:
+    label_zh: 坦帕灣
+    label_en: Tampa-St. Petersburg-Clearwater
+    aliases: [Tampa, Tampa Bay]
+    admin_areas: [fl]
+  denver:
+    label_zh: 丹佛
+    label_en: Denver-Aurora-Lakewood
+    aliases: [Denver]
+    admin_areas: [co]
+  st_louis:
+    label_zh: 聖路易
+    label_en: St. Louis
+    aliases: [St Louis, Saint Louis]
+    admin_areas: [mo, il]
+  baltimore:
+    label_zh: 巴爾的摩
+    label_en: Baltimore-Columbia-Towson
+    aliases: [Baltimore]
+    admin_areas: [md]
+  charlotte:
+    label_zh: 夏洛特
+    label_en: Charlotte-Concord-Gastonia
+    aliases: [Charlotte]
+    admin_areas: [nc, sc]
+  orlando:
+    label_zh: 奧蘭多
+    label_en: Orlando-Kissimmee-Sanford
+    aliases: [Orlando]
+    admin_areas: [fl]
+  san_antonio:
+    label_zh: 聖安東尼奧
+    label_en: San Antonio-New Braunfels
+    aliases: [San Antonio]
+    admin_areas: [tx]
+  portland:
+    label_zh: 波特蘭
+    label_en: Portland-Vancouver-Hillsboro
+    aliases: [Portland]
+    admin_areas: [or, wa]
+  sacramento:
+    label_zh: 沙加緬度
+    label_en: Sacramento-Roseville-Folsom
+    aliases: [Sacramento]
+    admin_areas: [ca]
+  pittsburgh:
+    label_zh: 匹茲堡
+    label_en: Pittsburgh
+    aliases: [Pittsburgh]
+    admin_areas: [pa]
+  austin:
+    label_zh: 奧斯汀
+    label_en: Austin-Round Rock-Georgetown
+    aliases: [Austin]
+    admin_areas: [tx]
+  las_vegas:
+    label_zh: 拉斯維加斯
+    label_en: Las Vegas-Henderson-Paradise
+    aliases: [Las Vegas, Vegas]
+    admin_areas: [nv]
+  cincinnati:
+    label_zh: 辛辛那提
+    label_en: Cincinnati
+    aliases: [Cincinnati]
+    admin_areas: [oh, ky, in]
+  remote_us:
+    label_zh: 美國全遠端
+    label_en: United States Remote
+    aliases: [Remote US, US Remote]
+    admin_areas: []

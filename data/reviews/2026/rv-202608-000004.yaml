@@ -8,7 +8,8 @@ recruiter:
 hiring_company: 示範製造股份有限公司
 industry: manufacturing
 country: tw
-tw_region: central
+admin_area: txg
+metro: taichung_metro
 role_family: operations
 seniority: mid
 channel: "1111"

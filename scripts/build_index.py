@@ -40,7 +40,8 @@ def flatten(record: dict) -> dict:
         "hiring_company": record.get("hiring_company"),
         "industry": record["industry"],
         "country": record["country"],
-        "tw_region": record.get("tw_region"),
+        "admin_area": record.get("admin_area"),
+        "metro": record.get("metro"),
         "role_family": record["role_family"],
         "seniority": record["seniority"],
         "channel": record["channel"],
@@ -78,7 +79,6 @@ def main() -> int:
     for filename, output_key in (
         ("industries.yaml", "industries"),
         ("countries.yaml", "countries"),
-        ("tw_regions.yaml", "tw_regions"),
         ("role_families.yaml", "role_families"),
     ):
         with (ROOT / "taxonomy" / filename).open(encoding="utf-8") as handle:
@@ -91,6 +91,22 @@ def main() -> int:
         "score_dimensions",
     ):
         taxonomy[key] = labels(enums[key])
+    taxonomy["subdivisions"] = {}
+    subdivisions_path = ROOT / "taxonomy" / "subdivisions"
+    for path in sorted(subdivisions_path.glob("*.yaml")):
+        country = path.stem
+        with path.open(encoding="utf-8") as handle:
+            subdivision = yaml.safe_load(handle)
+        taxonomy["subdivisions"][country] = {
+            "admin_areas": labels(subdivision["admin_areas"]),
+            "metros": {
+                key: {
+                    "label": definition["label_zh"],
+                    "admin_areas": definition.get("admin_areas", []),
+                }
+                for key, definition in subdivision["metros"].items()
+            },
+        }
 
     aggregates: dict[str, list[dict]] = defaultdict(list)
     for record in records:

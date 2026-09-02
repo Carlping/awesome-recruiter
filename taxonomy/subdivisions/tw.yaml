@@ -1,0 +1,125 @@
+admin_areas:
+  tpe:
+    label_zh: 臺北市
+    label_en: Taipei City
+    aliases: [台北市, Taipei]
+  nwt:
+    label_zh: 新北市
+    label_en: New Taipei City
+    aliases: [New Taipei, 新北]
+  tao:
+    label_zh: 桃園市
+    label_en: Taoyuan City
+    aliases: [桃園, Taoyuan]
+  hsq:
+    label_zh: 新竹縣
+    label_en: Hsinchu County
+    aliases: [Hsinchu County, 新竹縣]
+  hsz:
+    label_zh: 新竹市
+    label_en: Hsinchu City
+    aliases: [Hsinchu City, 新竹市]
+  mia:
+    label_zh: 苗栗縣
+    label_en: Miaoli County
+    aliases: [Miaoli, 苗栗]
+  txg:
+    label_zh: 臺中市
+    label_en: Taichung City
+    aliases: [台中市, Taichung]
+  cha:
+    label_zh: 彰化縣
+    label_en: Changhua County
+    aliases: [Changhua, 彰化]
+  nan:
+    label_zh: 南投縣
+    label_en: Nantou County
+    aliases: [Nantou, 南投]
+  yun:
+    label_zh: 雲林縣
+    label_en: Yunlin County
+    aliases: [Yunlin, 雲林]
+  cyi:
+    label_zh: 嘉義縣
+    label_en: Chiayi County
+    aliases: [Chiayi County, 嘉義縣]
+  cyq:
+    label_zh: 嘉義市
+    label_en: Chiayi City
+    aliases: [Chiayi City, 嘉義市]
+  tnn:
+    label_zh: 臺南市
+    label_en: Tainan City
+    aliases: [台南市, Tainan]
+  khh:
+    label_zh: 高雄市
+    label_en: Kaohsiung City
+    aliases: [Kaohsiung, 高雄]
+  pif:
+    label_zh: 屏東縣
+    label_en: Pingtung County
+    aliases: [Pingtung, 屏東]
+  ila:
+    label_zh: 宜蘭縣
+    label_en: Yilan County
+    aliases: [Yilan, 宜蘭]
+  hln:
+    label_zh: 花蓮縣
+    label_en: Hualien County
+    aliases: [Hualien, 花蓮]
+  ttt:
+    label_zh: 臺東縣
+    label_en: Taitung County
+    aliases: [台東縣, Taitung]
+  pen:
+    label_zh: 澎湖縣
+    label_en: Penghu County
+    aliases: [Penghu, 澎湖]
+  kin:
+    label_zh: 金門縣
+    label_en: Kinmen County
+    aliases: [Kinmen, 金門]
+  lien:
+    label_zh: 連江縣
+    label_en: Lienchiang County
+    aliases: [Matsu, Lienchiang, 連江]
+  kee:
+    label_zh: 基隆市
+    label_en: Keelung City
+    aliases: [Keelung, 基隆]
+metros:
+  taipei_metro:
+    label_zh: 臺北都會區
+    label_en: Taipei Metropolitan Area
+    aliases: [台北都會區, Taipei, Greater Taipei]
+    admin_areas: [tpe, nwt, kee]
+  taoyuan_hsinchu:
+    label_zh: 桃竹苗
+    label_en: Taoyuan-Hsinchu-Miaoli
+    aliases: [Taoyuan-Hsinchu, 桃竹苗地區]
+    admin_areas: [tao, hsq, hsz, mia]
+  taichung_metro:
+    label_zh: 臺中都會區
+    label_en: Greater Taichung
+    aliases: [台中都會區, Taichung]
+    admin_areas: [txg, cha, nan]
+  tainan_metro:
+    label_zh: 臺南都會區
+    label_en: Greater Tainan
+    aliases: [台南都會區, Tainan]
+    admin_areas: [tnn]
+  kaohsiung_metro:
+    label_zh: 高雄都會區
+    label_en: Greater Kaohsiung
+    aliases: [Kaohsiung Metro, 高雄]
+    admin_areas: [khh, pif]
+  east_islands:
+    label_zh: 東部與離島
+    label_en: Eastern Taiwan and Islands
+    aliases: [Eastern Taiwan, 東部]
+    admin_areas: [ila, hln, ttt, pen, kin, lien]
+  remote_tw:
+    label_zh: 台灣全遠端
+    label_en: Taiwan Remote
+    aliases: [Remote Taiwan, 台灣遠端]
+    admin_areas: []

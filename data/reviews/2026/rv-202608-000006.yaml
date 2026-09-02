@@ -8,7 +8,8 @@ recruiter:
 hiring_company: null
 industry: internet_platform
 country: tw
-tw_region: remote
+admin_area: null
+metro: remote_tw
 role_family: design
 seniority: senior
 channel: referral

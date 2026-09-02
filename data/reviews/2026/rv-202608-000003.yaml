@@ -8,7 +8,8 @@ recruiter:
 hiring_company: null
 industry: fintech
 country: tw
-tw_region: new_taipei_keelung
+admin_area: nwt
+metro: taipei_metro
 role_family: data_ai
 seniority: junior
 channel: "104"
